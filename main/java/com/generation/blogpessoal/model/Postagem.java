@@ -2,67 +2,66 @@ package com.generation.blogpessoal.model;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
 import org.hibernate.annotations.UpdateTimestamp;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType; 
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 @Entity
-@Table(name = "tb_postagens")
+@Table(name="tb_postagens")
 public class Postagem {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@NotBlank(message = "O atributo título é obrigatório!")
-	@Size(min = 5, max = 100, message = "o atributo título deve conter no mínimo 05 e no máximo 100 caracteres")
-	private String titulo;
-	
-	@NotBlank(message = "O atributo título é obrigatório!")
-	@Size(min = 10, max = 1000, message = "o atributo texto deve conter no mínimo 10 e no máximo 1000 caracteres")
-	private String texto;
-	
-	@UpdateTimestamp
-	private LocalDateTime data;
 
-	public Long getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @NotBlank(message = "O atributo título é obrigatório!")
+    @Size(min = 5, max = 100, message = "O título deve conter no mínbimo 05 e no máximo 100 caracteres!")
+    private String titulo;
 
-	public String getTitulo() {
-		return titulo;
-	}
+    @NotBlank(message = "O atributo texto é obrigatório!")
+    @Size(min=10, max=1000, message = "O texto deve contar no mínimo 10 e no máximo 1000 caracteres!")
+    private String texto;
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+    @UpdateTimestamp
+    private LocalDateTime data;
 
-	public String getTexto() {
-		return texto;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setTexto(String texto) {
-		this.texto = texto;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public LocalDateTime getData() {
-		return data;
-	}
+    public String getTitulo() {
+        return titulo;
+    }
 
-	public void setData(LocalDateTime data) {
-		this.data = data;
-	}
-	
-	
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    public LocalDateTime getData() {
+        return data;
+    }
+
+    public void setData(LocalDateTime data) {
+        this.data = data;
+    }
+
 
 }
